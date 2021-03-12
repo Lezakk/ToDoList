@@ -10,16 +10,20 @@ public class TodoItem {
     private long id;
     @NotBlank
     private String title;
+    private String description;
+
+    public TodoItem(long id, @NotBlank String title, String description, boolean done) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.done = done;
+    }
+
     private boolean done;
 
     public TodoItem() {
     }
 
-    public TodoItem(long id, String title, boolean done) {
-        this.id = id;
-        this.title = title;
-        this.done = done;
-    }
 
     @Id
     @GeneratedValue
@@ -45,5 +49,13 @@ public class TodoItem {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
